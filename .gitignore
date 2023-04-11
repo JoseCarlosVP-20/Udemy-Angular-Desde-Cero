@@ -40,3 +40,10 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+
+01-Contador/node_modules/
+01-Contador/build/
+
+02-Tareas/node_modules/
+02-Tareas/build/
