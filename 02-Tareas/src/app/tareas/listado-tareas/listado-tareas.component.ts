@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Tarea } from 'src/app/interfaces/Tareas';
 import { TareasService } from 'src/app/services/tareas.service';
 
 @Component({
@@ -7,12 +8,13 @@ import { TareasService } from 'src/app/services/tareas.service';
   styleUrls: ['./listado-tareas.component.css'],
 })
 export class ListadoTareasComponent {
-  tareas: string[] = [];
-  constructor(private tareasService: TareasService) {
-    this.tareas = tareasService.getTareas();
+  constructor(private tareasService: TareasService) {}
+
+  get tareas() {
+    return this.tareasService.tareas;
   }
 
-  delete() {
-    this.tareasService.deleteTarea();
+  delete(tarea: Tarea) {
+    this.tareasService.deleteTarea(tarea.tarea);
   }
 }
