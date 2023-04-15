@@ -7,12 +7,12 @@
 </mat-grid-list>
 
 <div class="btns">
-  <button mat-fab color="primary"><mat-icon>
-    <span class="material-symbols-outlined">
-      arrow_back_ios_new
-    </span>
-  </mat-icon></button>
-  <button mat-fab color="warn">
+  <button (click)="prevPage()" mat-fab color="primary"><mat-icon>
+      <span class="material-symbols-outlined">
+        arrow_back_ios_new
+      </span>
+    </mat-icon></button>
+  <button (click)="nextPage()" mat-fab color="warn">
     <mat-icon><span class="material-symbols-outlined">
         arrow_forward_ios
       </span></mat-icon>

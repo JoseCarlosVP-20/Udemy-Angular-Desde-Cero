@@ -9,8 +9,25 @@ import { PokeService } from 'src/app/services/poke.service';
 export class GridComponent {
   pokeList: Array<any> = [];
 
+  private page: number = 0;
+
   constructor(private pokeService: PokeService) {
     pokeService.getList().subscribe((response: any) => {
+      this.pokeList = response.results;
+    });
+  }
+
+  nextPage() {
+    this.page += 10;
+
+    this.pokeService.getList(this.page).subscribe((response: any) => {
+      this.pokeList = response.results;
+    });
+  }
+  prevPage() {
+    this.page -= 10;
+
+    this.pokeService.getList(this.page).subscribe((response: any) => {
       this.pokeList = response.results;
     });
   }

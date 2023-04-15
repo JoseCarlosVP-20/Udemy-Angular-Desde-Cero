@@ -8,6 +8,8 @@ export class PokeService {
   constructor(private http: HttpClient) {}
 
   private baseUrl: string = 'https://pokeapi.co/api/v2/';
+
+  
   getList(page: number = 0) {
     return this.http.get(`${this.baseUrl}pokemon/`, {
       params: {
