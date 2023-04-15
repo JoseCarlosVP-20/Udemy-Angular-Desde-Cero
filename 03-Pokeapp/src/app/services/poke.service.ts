@@ -9,7 +9,11 @@ export class PokeService {
 
   getList() {
     return this.http.get(
-      'https://pokeapi.co/api/v2/ability/?limit=20&offset=20'
+      'https://pokeapi.co/api/v2/pokemon/?limit=10&offset=0'
     );
+  }
+
+  getPokemon(name: number) {
+    return this.http.get(`https://pokeapi.co/api/v2/pokemon/${name}`);
   }
 }
