@@ -7,13 +7,12 @@ import { Injectable } from '@angular/core';
 export class PokeService {
   constructor(private http: HttpClient) {}
 
-  getList() {
-    return this.http.get(
-      'https://pokeapi.co/api/v2/pokemon/?limit=10&offset=0'
-    );
+  private baseUrl: string = 'https://pokeapi.co/api/v2/';
+  getList(page: number = 0) {
+    return this.http.get(`${this.baseUrl}pokemon/?limit=10&offset=${page}`);
   }
 
   getPokemon(name: number) {
-    return this.http.get(`https://pokeapi.co/api/v2/pokemon/${name}`);
+    return this.http.get(`${this.baseUrl}pokemon/${name}`);
   }
 }
