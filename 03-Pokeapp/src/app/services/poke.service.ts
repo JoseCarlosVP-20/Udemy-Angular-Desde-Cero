@@ -9,7 +9,12 @@ export class PokeService {
 
   private baseUrl: string = 'https://pokeapi.co/api/v2/';
   getList(page: number = 0) {
-    return this.http.get(`${this.baseUrl}pokemon/?limit=10&offset=${page}`);
+    return this.http.get(`${this.baseUrl}pokemon/`, {
+      params: {
+        offset: page,
+        limit: 10,
+      },
+    });
   }
 
   getPokemon(name: number) {
