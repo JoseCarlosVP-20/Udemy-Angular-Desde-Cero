@@ -1,0 +1,20 @@
+<app-navbar></app-navbar>
+
+<mat-grid-list cols="5">
+  <mat-grid-tile *ngFor="let pokemon of pokeList">
+    <app-card [info]="pokemon"></app-card>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<div class="btns">
+  <button (click)="prevPage()" mat-fab color="primary"><mat-icon>
+      <span class="material-symbols-outlined">
+        arrow_back_ios_new
+      </span>
+    </mat-icon></button>
+  <button (click)="nextPage()" mat-fab color="warn">
+    <mat-icon><span class="material-symbols-outlined">
+        arrow_forward_ios
+      </span></mat-icon>
+  </button>
+</div>
