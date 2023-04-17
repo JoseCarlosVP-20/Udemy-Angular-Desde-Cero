@@ -1,16 +1,22 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-
 import { PokeService } from './poke.service';
 
 describe('PokeService', () => {
   let service: PokeService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({ imports: [HttpClientTestingModule] });
     service = TestBed.inject(PokeService);
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
+  });
+
+  it('Debería hacer petición http', () => {
+    service.getList().subscribe((response) => {
+      console.log(response);
+    });
   });
 });
