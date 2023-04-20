@@ -1,7 +1,6 @@
 import {
   HttpClientTestingModule,
   HttpTestingController,
-  TestRequest,
 } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { pokeListMock } from '../mocks/pokeList.mock';
@@ -30,23 +29,15 @@ describe('PokeService', () => {
   });
 
   it('Debería hacer petición http', (done: DoneFn) => {
-    service.getList().subscribe((response) => {
-      console.log(response);
+    const url = 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=8';
 
-      expect(1).toBe(1);
+    service.getList().subscribe((response: any) => {
+      expect(response).toEqual(pokeListMock);
+      expect(response.results.length).toBe(8);
+
       done();
     });
 
-    const req: TestRequest = httpClient.expectOne(
-      'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=8'
-    );
-
-    expect(req.request.url).toEqual(service.url);
-    expect(req.request.urlWithParams).toEqual(
-      'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=8'
-    );
-    expect(req.request.method).toEqual('GET');
-
-    req.flush(pokeListMock);
+    httpClient.expectOne(url).flush(pokeListMock);
   });
 });
