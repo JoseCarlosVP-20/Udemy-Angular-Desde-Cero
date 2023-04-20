@@ -1,4 +1,6 @@
-export const pokeDataMock = {
+import { PokeData } from '../interfaces/PokeData.interface';
+
+export const pokeDataMock: PokeData = {
   abilities: [
     {
       ability: {
