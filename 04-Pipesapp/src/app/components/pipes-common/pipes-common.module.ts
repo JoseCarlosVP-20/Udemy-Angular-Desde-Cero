@@ -9,9 +9,10 @@ import { KeyValueComponent } from './key-value/key-value.component';
 import { SliceComponent } from './slice/slice.component';
 import { I18nPluralComponent } from './i18n-plural/i18n-plural.component';
 import { I18nSelectComponent } from './i18n-select/i18n-select.component';
+import { AsyncComponent } from './async/async.component';
 
 @NgModule({
-  declarations: [ContainerComponent, TextoComponent, NumeroComponent, FechaComponent, JsonComponent, KeyValueComponent, SliceComponent, I18nPluralComponent, I18nSelectComponent],
+  declarations: [ContainerComponent, TextoComponent, NumeroComponent, FechaComponent, JsonComponent, KeyValueComponent, SliceComponent, I18nPluralComponent, I18nSelectComponent, AsyncComponent],
   imports: [CommonModule],
   exports: [ContainerComponent],
 })
