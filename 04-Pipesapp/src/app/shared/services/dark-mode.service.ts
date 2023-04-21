@@ -4,6 +4,10 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class DarkModeService {
-  dark: boolean = false;
+  dark: boolean = true;
   constructor() {}
+
+  changeMode() {
+    this.dark = !this.dark;
+  }
 }

@@ -12,4 +12,8 @@ export class CustomContainerComponent {
   get dark() {
     return this.darkModeServices.dark;
   }
+
+  changeMode() {
+    this.darkModeServices.changeMode();
+  }
 }

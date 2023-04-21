@@ -1,8 +1,8 @@
-import { PipeTransform } from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({ name: 'darkMode' })
 export class DarkModePipe implements PipeTransform {
-  transform() {
-    return 'Dark Mode desde pipe';
+  transform(value: boolean) {
+    return value ? 'bg-dark text-white' : 'bg-light text-dark';
   }
 }
