@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'temperature',
 })
 export class TemperaturePipe implements PipeTransform {
-  transform(value: number) {
-    return ``;
+  transform(value: number, tipo: string) {
+    return `${value} ºC ${tipo}`;
   }
 }
