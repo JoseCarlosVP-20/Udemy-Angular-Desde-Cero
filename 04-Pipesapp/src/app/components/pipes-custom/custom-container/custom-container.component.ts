@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TemperatureValues } from 'src/app/shared/enums/temperature.enum';
 import { DarkModeService } from 'src/app/shared/services/dark-mode.service';
 
 @Component({
@@ -7,7 +8,8 @@ import { DarkModeService } from 'src/app/shared/services/dark-mode.service';
   styleUrls: ['./custom-container.component.css'],
 })
 export class CustomContainerComponent {
-  grados:number = 31;
+  grados: number = 31;
+  tipo: TemperatureValues = TemperatureValues.F;
   constructor(private darkModeServices: DarkModeService) {}
 
   get dark() {
