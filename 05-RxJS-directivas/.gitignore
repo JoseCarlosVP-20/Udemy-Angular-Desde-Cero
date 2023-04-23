@@ -40,19 +40,3 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
-
-
-01-Contador/node_modules/
-01-Contador/build/
-
-02-Tareas/node_modules/
-02-Tareas/build/
-
-03-Pokeapp/node_modules/
-03-Pokeapp/build/
-
-04-Pipesapp/node_modules/
-04-Pipesapp/build/
-
-05-RxJS-directivas/node_modules/
-05-RxJS-directivas/build/
