@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, interval } from 'rxjs';
+import { Observable, filter, interval } from 'rxjs';
 
 @Component({
   selector: 'app-container',
@@ -12,6 +12,8 @@ export class ContainerComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.miIntervalo.subscribe((value) => console.log(value));
+    this.miIntervalo
+      .pipe(filter((value) => value % 2 === 0))
+      .subscribe((value) => console.log(value));
   }
 }
