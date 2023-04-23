@@ -13,12 +13,24 @@ export class ContainerComponent {
     const miObservable = new Observable<number>((observer) => {
       setInterval(() => {
         numero++;
-        observer.next(numero)
+        observer.next(numero);
+
+        observer.complete();
+
+        if (numero == 3) observer.error('Número erroneo');
       }, 1000);
     });
 
-    miObservable.subscribe((result)=>{
-      console.log(result);
-    });
+    miObservable.subscribe(
+      (result) => {
+        console.log(result);
+      },
+      (error) => {
+        console.error(error);
+      },
+      () => {
+        console.log('Observable Completado');
+      }
+    );
   }
 }
