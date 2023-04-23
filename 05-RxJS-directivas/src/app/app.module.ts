@@ -3,9 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { ReactiveModule } from './components/reactive/reactive.module';
+import { ThemeDirective } from './directives/theme.directive';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ThemeDirective],
   imports: [BrowserModule, ReactiveModule],
   providers: [],
   bootstrap: [AppComponent],
