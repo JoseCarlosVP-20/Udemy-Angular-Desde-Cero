@@ -22,14 +22,27 @@ export class ContainerComponent {
     });
 
     miObservable.subscribe(
-      (result) => {
-        console.log(result);
-      },
-      (error) => {
-        console.error(error);
-      },
-      () => {
-        console.log('Observable Completado');
+      // LEGACY
+      // (result) => {
+      //   console.log(result);
+      // },
+      // (error) => {
+      //   console.error(error);
+      // },
+      // () => {
+      //   console.log('Observable Completado');
+      // }
+
+      {
+        next: (result) => {
+          console.log(result);
+        },
+        error: (error) => {
+          console.error(error);
+        },
+        complete: () => {
+          console.log('Completado');
+        },
       }
     );
   }
