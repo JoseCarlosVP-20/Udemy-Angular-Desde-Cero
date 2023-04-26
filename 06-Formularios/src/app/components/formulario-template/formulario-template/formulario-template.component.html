@@ -1,15 +1,15 @@
-<div class="alert alert-danger d-flex align-items-center" role="alert">
-  <div>
-    <i class="bi bi-exclamation-triangle-fill"></i>
-   An example danger alert with an icon
-  </div>
-</div>
-
 <form
   class="form-group container"
   (ngSubmit)="agregar()"
   #miFormulario="ngForm"
 >
+  <div *ngIf="!miFormulario.valid" class="alert alert-danger d-flex align-items-center" role="alert">
+    <div>
+      <i class="bi bi-exclamation-triangle-fill"></i>
+      Formulario invalido
+    </div>
+  </div>
+
   <div class="mb-3">
     <label for="proyecto">Proyecto</label>
     <input
@@ -44,7 +44,7 @@
           class="form-control"
           type="text"
           id="tecnologias"
-          placeholder="Nombre de la tecnología" 
+          placeholder="Nombre de la tecnología"
         />
       </div>
       <div class="col-12 col-md-4">
@@ -60,5 +60,5 @@
 <pre>
   Proyecto: {{ miFormulario.value | json }}
   valido: {{ miFormulario.valid }}
-  Errors: {{ miFormulario.controls['proyecto'].errors | json }}
+  Errors: {{ miFormulario.controls["proyecto"].errors | json }}
 </pre>
