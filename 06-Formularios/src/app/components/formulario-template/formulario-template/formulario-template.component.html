@@ -14,6 +14,8 @@
       ngModel
       name="proyecto"
       minlength="3"
+      maxlength="6"
+      required
     />
   </div>
 
@@ -51,4 +53,5 @@
 <pre>
   Proyecto: {{ miFormulario.value | json }}
   valido: {{ miFormulario.valid }}
+  Errors: {{ miFormulario.controls['proyecto'].errors | json }}
 </pre>
