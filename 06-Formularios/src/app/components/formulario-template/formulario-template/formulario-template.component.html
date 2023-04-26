@@ -1,8 +1,9 @@
-<form class="form-group container">
+<form class="form-group container" (ngSubmit)="agregar()" #miFormulario="ngForm">
 
   <div class="mb-3">
     <label for="proyecto">Proyecto</label>
-    <input autocomplete="off" class="form-control" type="text" id="proyecto" placeholder="Nombre proyecto">
+    <input autocomplete="off" class="form-control" type="text" id="proyecto" placeholder="Nombre proyecto" ngModel
+      name="proyecto">
   </div>
 
   <div class="mb-3">
@@ -10,8 +11,16 @@
     <input class="form-control" type="number" id="horas" placeholder="Horas a Completar">
   </div>
   <div class="mb-3">
-    <label for="tecnologias">Proyecto</label>
-    <input autocomplete="off" class="form-control" type="text" id="tecnologias" placeholder="Nombre de la tecnología">
+    <div class="row">
+      <label for="tecnologias">Proyecto</label>
+      <div class="col-12 col-md-8">
+        <input autocomplete="off" class="form-control" type="text" id="tecnologias"
+          placeholder="Nombre de la tecnología">
+      </div>
+      <div class="col-12 col-md-4">
+        <button class="btn btn-success">Agregar</button>
+      </div>
+    </div>
 
   </div>
 
