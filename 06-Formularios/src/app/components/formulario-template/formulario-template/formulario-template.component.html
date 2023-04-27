@@ -3,7 +3,11 @@
   (ngSubmit)="agregar()"
   #miFormulario="ngForm"
 >
-  <div *ngIf="!miFormulario.valid" class="alert alert-danger d-flex align-items-center" role="alert">
+  <div
+    *ngIf="!miFormulario.valid"
+    class="alert alert-danger d-flex align-items-center"
+    role="alert"
+  >
     <div>
       <i class="bi bi-exclamation-triangle-fill"></i>
       Formulario invalido
@@ -33,6 +37,11 @@
       type="number"
       id="horas"
       placeholder="Horas a Completar"
+      ngModel
+      name="horas"
+      required
+      min="0"
+      max="25"
     />
   </div>
   <div class="mb-3">
@@ -60,5 +69,5 @@
 <pre>
   Proyecto: {{ miFormulario.value | json }}
   valido: {{ miFormulario.valid }}
-  Errors: {{ miFormulario.controls["proyecto"].errors | json }}
+  Errors: {{ miFormulario.controls["horas"].errors | json }}
 </pre>
