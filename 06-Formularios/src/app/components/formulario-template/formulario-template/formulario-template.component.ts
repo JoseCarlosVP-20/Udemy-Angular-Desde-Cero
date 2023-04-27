@@ -15,10 +15,23 @@ export class FormularioTemplateComponent {
     horas: 0,
     tecnologia: '',
   };
+  proyecto: any[] = [];
   tecnologias: Array<string> = [];
 
   agregar() {
-    console.log(this.miFormulario.value);
+    if (this.miFormulario.invalid) {
+      return;
+    }
+    this.proyecto.push({
+      proyecto: this.miFormulario.controls['proyecto'].value,
+      horas: this.miFormulario.controls['horas'].value,
+      tecnologia: this.tecnologias,
+    });
+
+    this.miFormulario.resetForm();
+    this.tecnologias = [];
+
+    console.log(this.proyecto);
   }
 
   agregarTec() {
@@ -31,7 +44,5 @@ export class FormularioTemplateComponent {
       ...this.miFormulario.value,
       tecnologia: '',
     });
-
-    console.log(this.tecnologias);
   }
 }
