@@ -22,10 +22,10 @@
       type="text"
       id="proyecto"
       placeholder="Nombre proyecto"
-      ngModel
+      [(ngModel)]="initialState.proyecto"
       name="proyecto"
       minlength="3"
-      maxlength="6"
+      maxlength="20"
       required
     />
   </div>
@@ -37,7 +37,7 @@
       type="number"
       id="horas"
       placeholder="Horas a Completar"
-      ngModel
+      [(ngModel)]="initialState.horas"
       name="horas"
       required
       min="0"
@@ -54,12 +54,11 @@
           type="text"
           id="tecnologias"
           placeholder="Nombre de la tecnología"
-          ngModel
+          [(ngModel)]="initialState.tecnologia"
           name="tecnologia"
           required="true"
           minlength="1"
-          maxlength="
-          15"
+          maxlength="15"
         />
       </div>
       <div class="col-12 col-md-4">

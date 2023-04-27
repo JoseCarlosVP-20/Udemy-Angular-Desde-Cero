@@ -10,6 +10,11 @@ export class FormularioTemplateComponent {
   @ViewChild('miFormulario')
   miFormulario!: NgForm;
 
+  initialState = {
+    proyecto: 'Hola mundo',
+    horas: 0,
+    tecnologia: '',
+  };
   tecnologias: Array<string> = [];
 
   agregar() {
