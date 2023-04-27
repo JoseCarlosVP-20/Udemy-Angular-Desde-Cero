@@ -10,7 +10,14 @@ export class FormularioTemplateComponent {
   @ViewChild('miFormulario')
   miFormulario!: NgForm;
 
+  tecnologias: Array<string> = [];
+
   agregar() {
     console.log(this.miFormulario.value);
+  }
+
+  agregarTec() {
+    this.tecnologias.push(this.miFormulario.controls['tecnologia'].value);
+    console.log(this.tecnologias);
   }
 }
