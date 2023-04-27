@@ -17,6 +17,9 @@ export class FormularioTemplateComponent {
   }
 
   agregarTec() {
+    if (this.miFormulario.invalid && this.miFormulario.touched) {
+      return;
+    }
     this.tecnologias.push(this.miFormulario.controls['tecnologia'].value);
     console.log(this.tecnologias);
   }
