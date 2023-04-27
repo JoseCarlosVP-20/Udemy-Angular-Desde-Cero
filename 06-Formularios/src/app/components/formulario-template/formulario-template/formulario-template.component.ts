@@ -11,7 +11,7 @@ export class FormularioTemplateComponent {
   miFormulario!: NgForm;
 
   initialState = {
-    proyecto: 'Hola mundo',
+    proyecto: '',
     horas: 0,
     tecnologia: '',
   };
@@ -22,10 +22,16 @@ export class FormularioTemplateComponent {
   }
 
   agregarTec() {
-    if (this.miFormulario.invalid && this.miFormulario.touched) {
+    if (this.miFormulario.controls['tecnologia'].invalid) {
       return;
     }
     this.tecnologias.push(this.miFormulario.controls['tecnologia'].value);
+
+    this.miFormulario.resetForm({
+      ...this.miFormulario.value,
+      tecnologia: '',
+    });
+
     console.log(this.tecnologias);
   }
 }
