@@ -4,7 +4,7 @@
   #miFormulario="ngForm"
 >
   <div
-    *ngIf="!miFormulario.valid"
+    *ngIf="!miFormulario.valid && miFormulario.touched"
     class="alert alert-danger d-flex align-items-center"
     role="alert"
   >
@@ -79,6 +79,20 @@
     <button class="btn btn-warning" type="submit">Agregar Proyecto</button>
   </div>
 </form>
-<pre>
-  Proyecto: {{ proyecto | json }}
-</pre>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Proyecto</th>
+      <th scope="col">Horas</th>
+      <th scope="col">Tecnologías</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of proyecto">
+      <th scope="row">{{ item.proyecto }}</th>
+      <td>{{ item.horas }}</td>
+      <td>{{ item.tecnologia }}</td>
+    </tr>
+  </tbody>
+</table>
