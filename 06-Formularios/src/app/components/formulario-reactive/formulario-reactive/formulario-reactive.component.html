@@ -1,1 +1,80 @@
-<p>formulario-reactive works!</p>
+<form class="form-group container">
+  <!-- <div
+    *ngIf="!miFormulario.valid && miFormulario.touched"
+    class="alert alert-danger d-flex align-items-center"
+    role="alert"
+  >
+    <div>
+      <i class="bi bi-exclamation-triangle-fill"></i>
+      Formulario invalido
+    </div>
+  </div> -->
+
+  <div class="mb-3">
+    <label for="proyecto">Proyecto</label>
+    <input
+      autocomplete="off"
+      class="form-control"
+      type="text"
+      id="proyecto"
+      placeholder="Nombre proyecto"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="horas">Horas</label>
+    <input
+      class="form-control"
+      type="number"
+      id="horas"
+      placeholder="Horas a Completar"
+    />
+  </div>
+  <div class="mb-3">
+    <div class="row">
+      <label for="tecnologias">Tecnologías</label>
+      <div class="col-12 col-md-8">
+        <input
+          autocomplete="off"
+          class="form-control"
+          type="text"
+          id="tecnologias"
+          placeholder="Nombre de la tecnología"
+        />
+      </div>
+      <!-- <div class="col-12 col-md-4">
+        <button (click)="agregarTec()" type="button" class="btn btn-success">
+          Agregar
+        </button>
+      </div> -->
+    </div>
+  </div>
+  <div class="mb-3">
+    <ul class="list-group list-group-horizontal">
+      <li *ngFor="let tecnologia of []" class="list-group-item">
+        {{ tecnologia }}
+      </li>
+    </ul>
+  </div>
+
+  <div class="mb-3">
+    <button class="btn btn-warning" type="submit">Agregar Proyecto</button>
+  </div>
+</form>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Proyecto</th>
+      <th scope="col">Horas</th>
+      <th scope="col">Tecnologías</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of []">
+      <!-- <th scope="row">{{ item.proyecto }}</th>
+      <td>{{ item.horas }}</td>
+      <td>{{ item.tecnologia }}</td> -->
+    </tr>
+  </tbody>
+</table>
