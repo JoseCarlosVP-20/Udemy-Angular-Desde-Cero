@@ -1,6 +1,5 @@
-<form class="form-group container">
-  <!-- <div
-    *ngIf="!miFormulario.valid && miFormulario.touched"
+<form [formGroup]="miFormulario" class="form-group container">
+  <div
     class="alert alert-danger d-flex align-items-center"
     role="alert"
   >
@@ -8,7 +7,10 @@
       <i class="bi bi-exclamation-triangle-fill"></i>
       Formulario invalido
     </div>
-  </div> -->
+  </div>
+  <pre>
+    {{ miFormulario.invalid | json }}
+  </pre>
 
   <div class="mb-3">
     <label for="proyecto">Proyecto</label>
@@ -18,6 +20,7 @@
       type="text"
       id="proyecto"
       placeholder="Nombre proyecto"
+      formControlName="proyectoNombre"
     />
   </div>
 
@@ -28,6 +31,7 @@
       type="number"
       id="horas"
       placeholder="Horas a Completar"
+      formControlName="horas"
     />
   </div>
   <div class="mb-3">
@@ -40,6 +44,7 @@
           type="text"
           id="tecnologias"
           placeholder="Nombre de la tecnología"
+          formControlName="tecnologias"
         />
       </div>
       <!-- <div class="col-12 col-md-4">
