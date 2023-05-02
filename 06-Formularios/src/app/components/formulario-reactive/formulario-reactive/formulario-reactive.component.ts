@@ -27,17 +27,20 @@ export class FormularioReactiveComponent {
     tecnologias: this.fb.array([]),
   });
 
-  tecnologia: FormControl = this.fb.control('Angular', [
+  tecnologia: FormControl = this.fb.control('', [
     Validators.required,
     Validators.minLength(3),
     Validators.maxLength(25),
   ]);
 
-  constructor(private fb: FormBuilder) {}
-
   get tecnologias() {
     return this.miFormulario.get('tecnologias') as FormArray;
   }
+
+  proyectos:any[]=[];
+
+  constructor(private fb: FormBuilder) {}
+
   validar() {
     return this.miFormulario.invalid && this.miFormulario.touched;
   }
@@ -47,7 +50,17 @@ export class FormularioReactiveComponent {
       this.miFormulario.markAllAsTouched();
       return;
     }
-    this.tecnologias.push(this.tecnologia);
-    console.log('agregado');
+    this.tecnologias.push(this.fb.control(this.tecnologia.value));
+    this.tecnologia.reset();
+  }
+  agregarProyecto() {
+    if (this.miFormulario.invalid) {
+      this.miFormulario.markAllAsTouched();
+      return;
+    }
+    this.proyectos.push(this.miFormulario.value);
+    console.log(this.proyectos);
+    this.miFormulario.reset();
+    this.tecnologias.clear();
   }
 }

@@ -1,4 +1,8 @@
-<form [formGroup]="miFormulario" class="form-group container">
+<form
+  (ngSubmit)="agregarProyecto()"
+  [formGroup]="miFormulario"
+  class="form-group container"
+>
   <div
     *ngIf="validar()"
     class="alert alert-danger d-flex align-items-center"
@@ -58,7 +62,7 @@
   </div>
   <div class="mb-3">
     <ul class="list-group list-group-horizontal">
-      <li *ngFor="let tecnologia of []" class="list-group-item">
+      <li *ngFor="let tecnologia of tecnologias.value" class="list-group-item">
         {{ tecnologia }}
       </li>
     </ul>
@@ -78,10 +82,10 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let item of []">
-      <!-- <th scope="row">{{ item.proyecto }}</th>
+    <tr *ngFor="let item of proyectos">
+      <th scope="row">{{ item.proyectoNombre }}</th>
       <td>{{ item.horas }}</td>
-      <td>{{ item.tecnologia }}</td> -->
+      <td>{{ item.tecnologias }}</td>
     </tr>
   </tbody>
 </table>
