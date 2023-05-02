@@ -1,5 +1,6 @@
 <form [formGroup]="miFormulario" class="form-group container">
   <div
+    *ngIf="validar()"
     class="alert alert-danger d-flex align-items-center"
     role="alert"
   >
@@ -8,50 +9,51 @@
       Formulario invalido
     </div>
   </div>
-  <pre>
-    {{ miFormulario.invalid | json }}
-  </pre>
 
   <div class="mb-3">
-    <label for="proyecto">Proyecto</label>
+    <label for="proyectoR">Proyecto</label>
     <input
       autocomplete="off"
       class="form-control"
       type="text"
-      id="proyecto"
+      id="proyectoR"
       placeholder="Nombre proyecto"
       formControlName="proyectoNombre"
     />
   </div>
 
   <div class="mb-3">
-    <label for="horas">Horas</label>
+    <label for="horasR">Horas</label>
     <input
       class="form-control"
       type="number"
-      id="horas"
+      id="horasR"
       placeholder="Horas a Completar"
       formControlName="horas"
     />
   </div>
   <div class="mb-3">
     <div class="row">
-      <label for="tecnologias">Tecnologías</label>
+      <label for="tecnologiasR">Tecnologías</label>
       <div class="col-12 col-md-8">
         <input
           autocomplete="off"
           class="form-control"
           type="text"
-          id="tecnologias"
+          id="tecnologiasR"
           placeholder="Nombre de la tecnología"
-          formControlName="tecnologias"
+          [formControl]="tecnologia"
         />
       </div>
-      <!-- <div class="col-12 col-md-4">
-        <button (click)="agregarTec()" type="button" class="btn btn-success">
+      <div class="col-12 col-md-4">
+        <button
+          (click)="agregarTecnologia()"
+          type="button"
+          class="btn btn-success"
+        >
           Agregar
         </button>
-      </div> -->
+      </div>
     </div>
   </div>
   <div class="mb-3">
