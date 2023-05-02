@@ -1,1 +1,91 @@
-<p>formulario-reactive works!</p>
+<form
+  (ngSubmit)="agregarProyecto()"
+  [formGroup]="miFormulario"
+  class="form-group container"
+>
+  <div
+    *ngIf="validar()"
+    class="alert alert-danger d-flex align-items-center"
+    role="alert"
+  >
+    <div>
+      <i class="bi bi-exclamation-triangle-fill"></i>
+      Formulario invalido
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="proyectoR">Proyecto</label>
+    <input
+      autocomplete="off"
+      class="form-control"
+      type="text"
+      id="proyectoR"
+      placeholder="Nombre proyecto"
+      formControlName="proyectoNombre"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="horasR">Horas</label>
+    <input
+      class="form-control"
+      type="number"
+      id="horasR"
+      placeholder="Horas a Completar"
+      formControlName="horas"
+    />
+  </div>
+  <div class="mb-3">
+    <div class="row">
+      <label for="tecnologiasR">Tecnologías</label>
+      <div class="col-12 col-md-8">
+        <input
+          autocomplete="off"
+          class="form-control"
+          type="text"
+          id="tecnologiasR"
+          placeholder="Nombre de la tecnología"
+          [formControl]="tecnologia"
+        />
+      </div>
+      <div class="col-12 col-md-4">
+        <button
+          (click)="agregarTecnologia()"
+          type="button"
+          class="btn btn-success"
+        >
+          Agregar
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="mb-3">
+    <ul class="list-group list-group-horizontal">
+      <li *ngFor="let tecnologia of tecnologias.value" class="list-group-item">
+        {{ tecnologia }}
+      </li>
+    </ul>
+  </div>
+
+  <div class="mb-3">
+    <button class="btn btn-warning" type="submit">Agregar Proyecto</button>
+  </div>
+</form>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Proyecto</th>
+      <th scope="col">Horas</th>
+      <th scope="col">Tecnologías</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of proyectos">
+      <th scope="row">{{ item.proyectoNombre }}</th>
+      <td>{{ item.horas }}</td>
+      <td>{{ item.tecnologias }}</td>
+    </tr>
+  </tbody>
+</table>
