@@ -13,14 +13,39 @@ describe('FormularioReactiveComponent', () => {
   });
 
   it('Debería crear un formulario con 3 inputs: -Proyecto, -Horas, -Tecnologías', () => {
-    const formulario = component.miFormulario;
+    const { proyectoNombre, horas, tecnologias } = component.miFormulario.value;
 
-    const proyecto = formulario.get('proyectoNombre');
-    const horas = formulario.get('horas');
-    const tecnologias = formulario.get('tecnologias');
+    expect(proyectoNombre).toBeDefined();
+    expect(horas).toBeDefined();
+    expect(tecnologias).toBeDefined();
+  });
 
-    expect(proyecto).toBeTruthy();
-    expect(horas).toBeTruthy();
-    expect(tecnologias).toBeTruthy();
+  it('Verificar que el campo Proyecto Nombre acepte mínimo 3 caracteres', () => {
+    const proyectoNombre = component.miFormulario.get('proyectoNombre');
+
+    proyectoNombre?.setValue('acb');
+    expect(proyectoNombre?.valid).toBeTruthy();
+  });
+
+  it('Verificar que el campo Proyecto Nombre acepte máximo 15 caracteres', () => {
+    const proyectoNombre = component.miFormulario.get('proyectoNombre');
+
+    proyectoNombre?.setValue('acb');
+    expect(proyectoNombre?.valid).toBeTruthy();
+  });
+
+  it('Verificar campo horas', () => {
+    const horas = component.miFormulario.get('horas');
+
+    expect(horas?.valid).toBeTruthy();
+
+    horas?.setValue(0);
+    expect(horas?.invalid).toBeTruthy();
+
+    horas?.setValue(51);
+    expect(horas?.invalid).toBeTruthy();
+
+    horas?.setValue('51');
+    expect(horas?.invalid).toBeTruthy();
   });
 });
