@@ -48,4 +48,22 @@ describe('FormularioReactiveComponent', () => {
     horas?.setValue('51');
     expect(horas?.invalid).toBeTruthy();
   });
+
+  it('Verificar campo tecnologias', () => {
+    const tecnologias = component.tecnologias;
+    const tecnologia = component.tecnologia;
+
+    tecnologia?.setValue('Angular');
+    component.agregarTecnologia();
+    expect(tecnologias.value.length).toBe(1);
+
+    tecnologia.setValue('React');
+    component.agregarTecnologia();
+
+    tecnologia.setValue('Node');
+    component.agregarTecnologia();
+    expect(tecnologias.value.length).toBe(3);
+
+    expect(tecnologias.value).toEqual(['Angular', 'React', 'Node']);
+  });
 });
