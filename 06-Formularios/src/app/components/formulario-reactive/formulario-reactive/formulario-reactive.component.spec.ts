@@ -1,23 +1,26 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { FormBuilder } from '@angular/forms';
 import { FormularioReactiveComponent } from './formulario-reactive.component';
 
 describe('FormularioReactiveComponent', () => {
   let component: FormularioReactiveComponent;
-  let fixture: ComponentFixture<FormularioReactiveComponent>;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ FormularioReactiveComponent ]
-    })
-    .compileComponents();
-
-    fixture = TestBed.createComponent(FormularioReactiveComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    component = new FormularioReactiveComponent(new FormBuilder());
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('Debería crear un formulario con 3 inputs: -Proyecto, -Horas, -Tecnologías', () => {
+    const formulario = component.miFormulario;
+
+    const proyecto = formulario.get('proyectoNombre');
+    const horas = formulario.get('horas');
+    const tecnologias = formulario.get('tecnologias');
+
+    expect(proyecto).toBeTruthy();
+    expect(horas).toBeTruthy();
+    expect(tecnologias).toBeTruthy();
   });
 });
