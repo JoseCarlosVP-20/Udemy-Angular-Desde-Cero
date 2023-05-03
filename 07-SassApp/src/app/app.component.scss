@@ -2,5 +2,16 @@
 
 .btn {
   background-color: $primary;
-  color: $secondary;
+  color: $white;
+
+  &.btn-dark {
+    background-color: $dark;
+    color: $primary;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: lighten($color: $dark, $amount: 10);
+    color: $white;
+  }
 }
