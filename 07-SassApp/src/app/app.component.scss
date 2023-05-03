@@ -9,6 +9,10 @@
     color: $primary;
   }
 
+  &:active{
+    background-color: darken($color: $dark, $amount: 5);
+  }
+
   &:hover {
     cursor: pointer;
     background-color: lighten($color: $dark, $amount: 10);
