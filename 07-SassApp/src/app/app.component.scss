@@ -1,5 +1,5 @@
-$primary: red;
-$secondary: snow;
+@import "config";
+
 .btn {
   background-color: $primary;
   color: $secondary;
