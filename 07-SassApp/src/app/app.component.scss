@@ -1,0 +1,21 @@
+@import "config";
+
+.btn {
+  background-color: $primary;
+  color: $white;
+
+  &.btn-dark {
+    background-color: $dark;
+    color: $primary;
+  }
+
+  &:active{
+    background-color: darken($color: $dark, $amount: 5);
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: lighten($color: $dark, $amount: 10);
+    color: $white;
+  }
+}
