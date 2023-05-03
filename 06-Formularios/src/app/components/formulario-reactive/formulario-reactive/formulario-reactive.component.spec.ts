@@ -66,4 +66,24 @@ describe('FormularioReactiveComponent', () => {
 
     expect(tecnologias.value).toEqual(['Angular', 'React', 'Node']);
   });
+
+  it('Verificar agregar proyecto', () => {
+    const formulario = component.miFormulario;
+    const proyectoNombre = component.miFormulario.get('proyectoNombre');
+    const horas = component.miFormulario.get('horas');
+    const tecnologia = component.tecnologia;
+
+    proyectoNombre?.setValue('Blog');
+    horas?.setValue(10);
+
+    tecnologia.setValue('Angular');
+    component.agregarTecnologia();
+
+    tecnologia.setValue('Node');
+    component.agregarTecnologia();
+
+    component.agregarProyecto();
+
+    expect(component.proyectos.length).toBe(1);
+  });
 });
