@@ -14,7 +14,10 @@
           >
         </div>
         <div class="mt-3">
-          <a [href]="proyecto.url" target="_blank" class="btn btn-success w-100"
+          <a
+            [routerLink]="'informacion/' + getURI(proyecto.nombre)"
+            target="_blank"
+            class="btn btn-success w-100"
             >Detalles</a
           >
         </div>

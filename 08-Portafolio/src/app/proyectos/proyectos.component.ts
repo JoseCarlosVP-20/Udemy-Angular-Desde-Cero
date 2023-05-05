@@ -11,4 +11,7 @@ export class ProyectosComponent {
   get data() {
     return this.proyectosServices.data;
   }
+  getURI(nombre: string) {
+    return encodeURI(nombre);
+  }
 }
