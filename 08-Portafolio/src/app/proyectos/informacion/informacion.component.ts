@@ -9,6 +9,8 @@ import { ProyectosService } from '../service/proyectos.service';
 })
 export class InformacionComponent implements OnInit {
   parametro: string = '';
+  proyectoData: any = {};
+
   constructor(
     private router: ActivatedRoute,
     private proyectoDataService: ProyectosService
@@ -20,6 +22,6 @@ export class InformacionComponent implements OnInit {
     this.parametro = decodeURI(nombre);
   }
   ngOnInit(): void {
-    this.proyectoDataService.getproyectos(this.parametro);
+    this.proyectoData = this.proyectoDataService.getproyectos(this.parametro);
   }
 }
