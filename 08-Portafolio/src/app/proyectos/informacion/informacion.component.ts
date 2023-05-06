@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProyectosService } from '../service/proyectos.service';
 
 @Component({
@@ -12,16 +12,21 @@ export class InformacionComponent implements OnInit {
   proyectoData: any = {};
 
   constructor(
-    private router: ActivatedRoute,
-    private proyectoDataService: ProyectosService
+    private activatedRouter: ActivatedRoute,
+    private proyectoDataService: ProyectosService,
+    private router: Router
   ) {
     let nombre = '';
-    router.params.subscribe(({ nombre: nombreProyecto }) => {
+    activatedRouter.params.subscribe(({ nombre: nombreProyecto }) => {
       nombre = nombreProyecto;
     });
     this.parametro = decodeURI(nombre);
   }
   ngOnInit(): void {
     this.proyectoData = this.proyectoDataService.getproyectos(this.parametro);
+  }
+
+  goProyectos() {
+    this.router.navigate(['/proyectos']);
   }
 }
